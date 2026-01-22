@@ -2,7 +2,7 @@
 
 Name:     kubo
 Version:  0.39.0
-Release:  1
+Release:  2
 Summary:  IPFS implementation in Go
 License:  MIT
 Group:    Networking/Other
@@ -42,6 +42,7 @@ cat << EOF >>  %{buildroot}%{_userunitdir}/ipfs.service
 Description=InterPlanetary File System (IPFS) daemon
 
 [Service]
+Environment="IPFS_TELEMETRY=off"
 ExecStart=/usr/bin/ipfs daemon
 Restart=on-failure
 
@@ -54,6 +55,7 @@ Description=InterPlanetary File System (IPFS) daemon
 
 [Service]
 User=%i
+Environment="IPFS_TELEMETRY=off"
 ExecStart=/usr/bin/ipfs daemon
 Restart=on-failure
 
